@@ -1,0 +1,33 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+  server:
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 60000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Eureka Server
+    description: Service Registry for Chat Application
+    version: 1.0.0
