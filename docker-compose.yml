@@ -1,0 +1,14 @@
+
+services:
+  eureka-server:
+    build: .
+    image: eureka-server:local
+    restart: unless-stopped
+    ports:
+      - "8761:8761"
+    networks:
+      - chatapp
+
+networks:
+  chatapp:
+    external: true
