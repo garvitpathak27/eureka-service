@@ -5,7 +5,7 @@ services:
     image: eureka-server:local
     restart: unless-stopped
     ports:
-      - "8761:8761"
+      - "127.0.0.1:8761:8761"
     networks:
       - chatapp
 
