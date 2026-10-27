@@ -6,6 +6,10 @@ services:
     restart: unless-stopped
     ports:
       - "127.0.0.1:8761:8761"
+    # Unbounded containers let one runaway query or load test consume host
+    # memory until the OOM killer fires - and it kills whatever is largest,
+    # not the offender.
+    mem_limit: 384m
     networks:
       - chatapp
 
